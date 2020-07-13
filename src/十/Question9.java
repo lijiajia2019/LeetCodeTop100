@@ -20,6 +20,7 @@ package 十;
  */
 public class Question9 {
 
+    //暴力解法
     public boolean isPalindrome(int x) {
         String s=String.valueOf(x);
         if(s.length()<2) return true;
@@ -35,4 +36,25 @@ public class Question9 {
         }
         return true;
     }
+
+
+    //直接用数字位数来比较。涉及对一些数字某一位的取、删除的运算。
+    public boolean ishuiwenshu(int x){
+        if(x<0) return false;
+        int wei=1;
+        while(x/wei>=10)  wei=wei*10;
+
+        while(x>0){
+            int left=x/wei;
+            int right=x%10;
+            if(left!=right) return false;
+            x=(x%wei)/10;
+            wei/=100;
+        }
+        return true;
+
+
+
+    }
+
 }
