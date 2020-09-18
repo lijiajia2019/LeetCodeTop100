@@ -10,6 +10,7 @@
  */
 package olny67;
 
+import java.util.Arrays;
 import java.util.HashSet;
 
 /**
@@ -63,6 +64,21 @@ public class top50 {
         }
 
         //没有发现
+        return false;
+    }
+
+    public boolean duplicate3(int numbers[],int length,int [] duplication) {
+        //先用api进行排序，然后再两两比较。
+       if(length<=0 || numbers==null){
+            return false;}
+        Arrays.sort(numbers);
+        for(int i=0;i<length-1;i++){
+        if(numbers[i]==numbers[i+1])
+        {
+            duplication[0]=numbers[i];
+            return true;
+        }
+        }
         return false;
     }
 }
