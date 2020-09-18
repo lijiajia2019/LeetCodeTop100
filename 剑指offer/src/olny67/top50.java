@@ -10,6 +10,8 @@
  */
 package olny67;
 
+import java.util.HashSet;
+
 /**
  * 〈一句话功能简述〉<br> 
  * 〈数组中的重复数字〉
@@ -43,5 +45,24 @@ public class top50 {
         }
         //遍历完整个数组都没有，就返回false;
        return false;
+    }
+
+    //使用Hashset来做
+     public boolean duplicate2(int numbers[],int length,int [] duplication) {
+    if(length<=0 || numbers==null){
+        return false;
+    }
+        HashSet<Integer> set=new HashSet();
+        for(int i=0;i<length;i++){
+            int tem=numbers[i];
+         if(set.contains(tem)){
+             duplication[0]=tem;
+             return true;
+         }
+            set.add(tem);
+        }
+
+        //没有发现
+        return false;
     }
 }
